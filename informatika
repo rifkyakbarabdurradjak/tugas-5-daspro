@@ -1,0 +1,49 @@
+films = {
+    'horor': ['Annabelle', 'Pengabdi Setan', 'The Nun 1', 'The Nun 2', 'The Conjuring', 'Valak'],
+    'action': ['Avengers', 'spider-man No Way Home', 'John wick'],
+    'comedy': ['Gila Lu Ndro', 'Agak Laen', 'Warkop DKI'],
+    'anime': ['wanpis', 'Attack On Titan', 'Dragon Ball'],
+    'drama': ['Tittanic', 'The GodFather', 'Forest Gump']
+}
+
+harga = {
+    'horor': {'senin': 35000, 'selasa': 35000, 'rabu': 35000, 'kamis': 35000, 'jumat': 40000, 'sabtu': 50000, 'minggu': 50000},
+    'action': {'senin': 35000, 'selasa': 35000, 'rabu': 35000, 'kamis': 35000, 'jumat': 40000, 'sabtu': 50000, 'minggu': 50000},
+    'comedy': {'senin': 35000, 'selasa': 35000, 'rabu': 35000, 'kamis': 35000, 'jumat': 40000, 'sabtu': 50000, 'minggu': 50000},
+    'anime': {'senin': 35000, 'selasa': 35000, 'rabu': 35000, 'kamis': 35000, 'jumat': 40000, 'sabtu': 50000, 'minggu': 50000},
+    'drama': {'senin': 35000, 'selasa': 35000, 'rabu': 35000, 'kamis': 35000, 'jumat': 40000, 'sabtu': 50000, 'minggu': 5000}
+}
+
+print("List genre:")
+for index, genre in enumerate(films.keys(), start=1):
+    print(f"{index}. {genre.capitalize()}")
+
+pilihan_genre = input("Pilih jenis genre (nama/angka): ")
+
+if pilihan_genre.isdigit():
+    pilihan_genre = list(films.keys())[int(pilihan_genre) - 1]
+
+print(f"\nContoh {pilihan_genre}:")
+for film in films[pilihan_genre]:
+    print(f"Genre {pilihan_genre} - {film}")
+
+pilihan_film = input("\nPilih film (nama/angka): ")
+waktu_nonton = input("Masukkan hari: ")
+quantity = int(input("Jumlah tiket: "))
+jumlah_orang = int(input("Jumlah orang: "))
+harga_tiket = harga[pilihan_genre][waktu_nonton] * quantity * jumlah_orang
+
+confirm = input("\nBeli tiket? (y/n): ")
+if confirm == 'y':
+    nama = input("Masukkan nama: ")
+    usia = input("Masukkan usia: ")
+
+    print("\nDetail Pembelian:")
+    print(f"1. Nama: {nama}")
+    print(f"2. Usia: {usia}")
+    print(f"3. Genre: {pilihan_genre.capitalize()}")
+    print(f"4. Film: {films[pilihan_genre][int(pilihan_film) - 1]}")
+    print(f"5. Harga: {harga_tiket}")
+    print(f"6. Waktu: {waktu_nonton.capitalize()}")
+else:
+    print("Pembelian dibatalkan.")
